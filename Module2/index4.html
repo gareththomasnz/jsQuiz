@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>004 Create a simple function which accepts one parameter and returns a computed value</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 1, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 692362, "assessment_type": "coding-problem", "created": "2015-10-03T00:55:45Z", "prompt": {"question": "required", "instructions": "Declare a function called orangeCost which accepts one parameter (the cost of a single orange). The function should compute and return the cost of 5 oranges by multiplying the input parameter by 5.", "eval": true, "verification": "// Check if 'orangeCost' is a function\r\nif(typeof(orangeCost)!=\"function\") {\r\nreturn \"You haven't declared a function named orangeCost\";\r\n}\r\n// Check if 'orangeCost' accepts parameters\r\nelse if(orangeCost.length==0) {\r\nreturn \"Oops! Your function does not accept any parameters\";\r\n} else {\r\n// Invoke the function 'orangeCost'\r\nvar a= orangeCost(7);\r\n// Check the value returned by 'orangeCost'\r\nif(a!=35) {\r\nreturn \"Oops! Looks like your function does not compute the price of 5 oranges properly.\";\r\n}\r\n}\r\n// Return true since there are no errors\r\nreturn true;", "solution_files": [{"content": "function orangeCost(price){\nvar cost=price*5;\nreturn cost;\n}", "file_name": "index.js"}], "initial_files": [{"content": "", "file_name": "index.js"}], "language": "JS", "test_files": [{"content": "function __test__() {\n// Check if 'orangeCost' is a function\nif(typeof(orangeCost)!=\"function\") {\nreturn \"You haven't declared a function named orangeCost\";\n}\n// Check if 'orangeCost' accepts parameters\nelse if(orangeCost.length==0) {\nreturn \"Oops! Your function does not accept any parameters\";\n} else {\n// Invoke the function 'orangeCost'\nvar a= orangeCost(7);\n// Check the value returned by 'orangeCost'\nif(a!=35) {\nreturn \"Oops! Looks like your function does not compute the price of 5 oranges properly.\";\n}\n}\n// Return true since there are no errors\nreturn true;\n}\nit('', function() {\n    var msg = __test__();\n    since(msg).expect(msg).toBe(true);\n});", "file_name": "evaluate.js"}], "hints": [{"title": "function orangeCost(ARGUMENT){CODE}", "text": "update the argument and add code in the code section"}]}, "correct_response": [""], "score": 1.0, "updated": "2016-07-13T16:17:37Z", "old_assessment_type": null, "question_plain": "required", "related_lectures": []}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

@@ -91,7 +91,7 @@
 
 	function checkPage(i) {
 		/// add remove disabled buttons if there are no more questions in que
-		if (curPage == 0) {
+		if (curPage === 0) {
 			btnPrevious.classList.add("hide");
 		} else {
 			btnPrevious.classList.remove("hide");
@@ -131,5 +131,5 @@
 	function capitalise(str) {
 		return str.substr(0, 1).toUpperCase() + str.substr(1);
 	}
-
+console.log(document);
 })();

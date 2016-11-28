@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>001 Declare a variable and assign it a numeric value</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j'];
+
+                var quiz = {"count": 1, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 692336, "assessment_type": "coding-problem", "created": "2015-10-03T00:38:22Z", "prompt": {"question": "required", "instructions": "This exercise tests your knowledge of the syntax for variable declaration and assignment of numerical values. Declare a variable called score and assign it any numerical value greater than 8. Be sure that you have used all the required keywords and delimiters.", "test_files": [{"content": "function __test__() {\n// Check if a variable 'score' has been defined\nif(typeof(score)==\"undefined\") {\nreturn \"Oops, try again. Did you declare a variable called 'score'?\";\n}\n// Check if 'score' has been assigned a numeric value\nif(typeof(score)!=\"number\") {\nreturn \"Oops, try again. The variable 'score' should be a number\";\n}\n// Check if the value of 'score' is greater than 8\nif(score<=8) {\nreturn \"Oops, try again. The value of 'score' should be greater than 8\";\n}\n// Return true since there are no errors\nreturn true;\n}\nit('', function() {\n    var msg = __test__();\n    since(msg).expect(msg).toBe(true);\n});", "file_name": "evaluate.js"}], "hints": [{"text": "var score = 9;", "title": "Setup Score Variable"}], "language": "JS", "initial_files": [{"content": "", "file_name": "index.js"}], "solution_files": [{"content": "var score = 9;", "file_name": "index.js"}], "eval": true, "verification": "// Check if a variable 'score' has been defined\r\nif(typeof(score)==\"undefined\") {\r\nreturn \"Oops, try again. Did you declare a variable called 'score'?\";\r\n}\r\n// Check if 'score' has been assigned a numeric value\r\nif(typeof(score)!=\"number\") {\r\nreturn \"Oops, try again. The variable 'score' should be a number\";\r\n}\r\n// Check if the value of 'score' is greater than 8\r\nif(score<=8) {\r\nreturn \"Oops, try again. The value of 'score' should be greater than 8\";\r\n}\r\n// Return true since there are no errors\r\nreturn true;"}, "correct_response": [""], "score": 1.0, "updated": "2016-07-13T16:17:37Z", "old_assessment_type": null, "question_plain": "required", "related_lectures": []}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = '';
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

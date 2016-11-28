@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>003 Complex conditions using if... else if</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 1, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 692378, "assessment_type": "coding-problem", "created": "2015-10-03T01:04:41Z", "prompt": {"test_files": [{"file_name": "evaluate.js", "content": "function __test__() {\n// Check if a function 'getRandomChoice' has been defined\nif(typeof(getRandomChoice)!=\"function\")\nreturn \"You haven't declared any function named getRandomChoice \";\nelse{\n// Invoke 'getRandomChoice' such that it returns 'rock'\nvar s=getRandomChoice(0.2);\n// Check if 'getRandomChoice' returned 'rock'\nif(s!=\"rock\") {\nreturn \"computerChoice should be assigned with the value 'rock' for values less that 0.34\";\n}\n// Invoke 'getRandomChoice' such that it returns 'paper'\nvar s= getRandomChoice(0.6);\n// Check if 'getRandomChoice' returned 'paper'\nif(s!=\"paper\") {\nreturn \"computerChoice should be assigned with the value 'paper' for values between 0.34 and 0.66\";\n}\n// Invoke 'getRandomChoice' such that it returns 'scissors'\nvar s=getRandomChoice(0.8);\n// Check if 'getRandomChoice' returned 'scissors'\nif(s!=\"scissors\") {\nreturn \"computerChoice should be assigned with the value 'scissors' for values between 0.67  and 1\";\n}\n}\n//return true since there are no errors\nreturn true;\n}\nit('', function() {\n    var msg = __test__();\n    since(msg).expect(msg).toBe(true);\n});"}], "language": "JS", "initial_files": [{"file_name": "index.js", "content": "function getRandomChoice() {\n}"}], "instructions": "Declare a function called getRandomChoice which accepts one parameter (a random number between 0 and 1). If the value of the parameter is greater than 0 but less than or equal to 0.33, then the function should return the string \u2018rock\u2019. If the value of the parameter is greater than 0.33 but less than or equal to 0.66, then the function should return the string \u2018paper\u2019.\nIf the value of the parameter is greater than 0.66, then the function should return the string \u2018scissors\u2019.", "eval": true, "solution_files": [{"file_name": "index.js", "content": "function getRandomChoice(computerChoice) {\nif(computerChoice>0 && computerChoice<=0.33) {\ncomputerChoice =\"rock\";\n}\nelse if(computerChoice>0.33 && computerChoice<=0.66) {\ncomputerChoice =\"paper\";\n} else if(computerChoice>0.66 && computerChoice<=1) {\ncomputerChoice=\"scissors\";\n}\nreturn computerChoice;\n}"}], "hints": [{"title": "Use 0.33 and .66 for third", "text": "thirds 0-33-66-100"}], "verification": "// Check if a function 'getRandomChoice' has been defined\r\nif(typeof(getRandomChoice)!=\"function\")\r\nreturn \"You haven't declared any function named getRandomChoice \";\r\nelse{\r\n// Invoke 'getRandomChoice' such that it returns 'rock'\r\nvar s=getRandomChoice(0.2);\r\n// Check if 'getRandomChoice' returned 'rock'\r\nif(s!=\"rock\") {\r\nreturn \"computerChoice should be assigned with the value 'rock' for values less that 0.34\";\r\n}\r\n// Invoke 'getRandomChoice' such that it returns 'paper'\r\nvar s= getRandomChoice(0.6);\r\n// Check if 'getRandomChoice' returned 'paper'\r\nif(s!=\"paper\") {\r\nreturn \"computerChoice should be assigned with the value 'paper' for values between 0.34 and 0.66\";\r\n}\r\n// Invoke 'getRandomChoice' such that it returns 'scissors'\r\nvar s=getRandomChoice(0.8);\r\n// Check if 'getRandomChoice' returned 'scissors'\r\nif(s!=\"scissors\") {\r\nreturn \"computerChoice should be assigned with the value 'scissors' for values between 0.67  and 1\";\r\n}\r\n}\r\n//return true since there are no errors\r\nreturn true;\r\n", "question": "required"}, "correct_response": [""], "score": 1.0, "updated": "2016-07-13T16:17:37Z", "old_assessment_type": null, "question_plain": "required", "related_lectures": []}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

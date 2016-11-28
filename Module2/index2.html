@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>002 Access elements in an array</title>
+    </head>
+    <body>
+
+        <div style="background-color:#ffffaa" align = "center">
+            <script>
+                var c = '';
+                var opt = '';
+                var n = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j']
+
+                var quiz = {"count": 1, "next": null, "previous": null, "results": [{"_class": "assessment", "id": 692392, "assessment_type": "coding-problem", "created": "2015-10-03T01:12:09Z", "prompt": {"solution_files": [{"content": "var languages = [\"HTML\", \"CSS\", \"JavaScript\", \"Python\", \"Ruby\"];\nfunction getValue(){\nreturn languages[2];\n}", "file_name": "index.js"}], "question": "required", "instructions": "he code you have below contains an array called languages. This array has five elements (five languages). You have to write a function called getValue. This function should return the third element from the array languages.", "test_files": [{"content": "function __test__() {\n// Check if a function 'getValue' has been defined\nif(typeof(getValue)!=\"function\") {\nreturn \"Didn't find the getValue function\";\n}\n// Check if the variable 'languages' has been defined\nelse if(typeof(languages)==\"undefined\") {\nreturn \"Didn't find any array named languages\";\n}\n// Check if 'languages' is of type Array\nelse if(!Array.isArray(languages)) {\nreturn \"Type of languages should be an array\";\n}\n// Invoke the function 'getValue' and check if it is equal\n// to the third element in the array 'languages'\nelse {\nvar s= getValue();\nif(s!=languages[2]) {\nreturn \"The function does not return the correct value\";\n}\n}\n// Return true since there are no errors\nreturn true;\n}\nit('', function() {\n    var msg = __test__();\n    since(msg).expect(msg).toBe(true);\n});", "file_name": "evaluate.js"}], "eval": true, "verification": "// Check if a function 'getValue' has been defined\r\nif(typeof(getValue)!=\"function\") {\r\nreturn \"Didn't find the getValue function\";\r\n}\r\n// Check if the variable 'languages' has been defined\r\nelse if(typeof(languages)==\"undefined\") {\r\nreturn \"Didn't find any array named languages\";\r\n}\r\n// Check if 'languages' is of type Array\r\nelse if(!Array.isArray(languages)) {\r\nreturn \"Type of languages should be an array\";\r\n}\r\n// Invoke the function 'getValue' and check if it is equal\r\n// to the third element in the array 'languages'\r\nelse {\r\nvar s= getValue();\r\nif(s!=languages[2]) {\r\nreturn \"The function does not return the correct value\";\r\n}\r\n}\r\n// Return true since there are no errors\r\nreturn true;", "initial_files": [{"content": "var languages = [\"HTML\", \"CSS\", \"JavaScript\", \"Python\", \"Ruby\"];", "file_name": "index.js"}], "language": "JS", "hints": [{"text": "languages[2];", "title": "Arrays start at 0"}]}, "correct_response": [""], "score": 1.0, "updated": "2016-07-13T16:17:37Z", "old_assessment_type": null, "question_plain": "required", "related_lectures": []}]};
+
+                for (var i = 0; i < quiz.results.length; i++) {
+
+                    var question = '<font color="ff0000"><br><h3>Question-' + i + ': </h3> <b>' + quiz.results[i].prompt.question + '</b> <br>';
+
+                    for (var j = 0; j < quiz.results[i].prompt.answers.length; j++) {
+
+                        opt = opt.concat(quiz.results[i].prompt.answers[j] ? '<p style="cursor: pointer" onclick="this.style=\'font-weight: bold; color: #CE534D\'">' + n[j] + ': ' + quiz.results[i].prompt.answers[j].toString().replace(/,/g, '<br>') + '</p>' : '<br>');
+                    }
+                    var ans = quiz.results[i].correct_response ? '<p> <br> <input style="cursor: pointer" type="button" onclick="this.value=\'Answer is: ' + quiz.results[i].correct_response.toString() + '\'" value="Show Answer"></input> </p>' : '<br>';
+                    c = c.concat(question, opt, ans);
+                    opt = ''
+                    }
+                document.write(c);
+            </script>
+        </div>
+    </body>
+    </html>

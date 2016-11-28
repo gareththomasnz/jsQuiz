@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>015 Rock Paper Scissors Code sample</title>
+</head>
+<body>
+<div class="asset-container">
+    <div class="asset-container__padding article-view">
+        <div class="w3c-default">
+            <p>SAMPLE CODE </p><p><a href="http://codepen.io/discoveryvip/pen/redwyv?editors=1111" rel="nofollow">Codepen Sample</a></p><p><code>&lt;select id="test" onchange="makeChange()"&gt;<br>    &lt;option value="0"&gt;Select&lt;/option&gt;<br>  &lt;option value="0.1"&gt;Rock&lt;/option&gt;<br>  &lt;option value="0.5"&gt;Paper&lt;/option&gt;<br>  &lt;option value="0.9"&gt;Scissors&lt;/option&gt;<br>&lt;/select&gt;<br>&lt;BR&gt; Enter a number 0-1<br>&lt;BR&gt;<br>&lt;input type="text" id="randomValue" onblur="blurFunction()"&gt;<br>&lt;BR&gt;<br>&lt;div id="demo"&gt;&lt;/div&gt;<br>&lt;script&gt;<br>function getRandomChoice(computerChoice) {<br>  if (computerChoice &gt; 0 &amp;&amp; computerChoice &lt;= 0.33) {<br>    computerChoice = "rock";<br>  } else if (computerChoice &gt; 0.33 &amp;&amp; computerChoice &lt;= 0.66) {<br>    computerChoice = "paper";<br>  } else if (computerChoice &gt; 0.66 &amp;&amp; computerChoice &lt;= 1) {<br>    computerChoice = "scissors";<br>  }<br>  return computerChoice;<br>}<br>function blurFunction() {<br>  var a = document.getElementById("randomValue").value;<br>  document.getElementById("demo").innerHTML = getRandomChoice(a);<br>}<br>function makeChange() {<br>  var a = document.getElementById("test").value;<br>  document.getElementById("demo").innerHTML = getRandomChoice(a);<br>}<br>&lt;/script&gt;</code></p><p><br></p><p><br></p>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
